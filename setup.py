@@ -23,6 +23,7 @@ setup(
         'pyrsistent~=0.14.9',
         'pytest~=5.3.2',
         'records~=0.5.3',
+        'sentencepiece==0.1.91',
         'stanford-corenlp~=3.9.2',
         'tabulate~=0.8.6',
         'torch~=1.3.1',
