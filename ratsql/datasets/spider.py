@@ -153,7 +153,7 @@ class SpiderDataset(torch.utils.data.Dataset):
             with sqlite3.connect(str(sqlite_path)) as source:
                 dest = sqlite3.connect(':memory:')
                 dest.row_factory = sqlite3.Row
-                source.backup(dest)
+                # source.backup(dest)
             schema.connection = dest
             
 
