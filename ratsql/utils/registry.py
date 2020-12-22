@@ -38,11 +38,8 @@ def construct(kind, config, unused_keys=(), **kwargs):
 
 def instantiate(callable, config, unused_keys=(), **kwargs):
     merged = {**config, **kwargs}
+    merged.pop('name', None)
     signature = inspect.signature(callable)
-    for name, param in signature.parameters.items():
-        if param.kind in (inspect.Parameter.POSITIONAL_ONLY, inspect.Parameter.VAR_POSITIONAL):
-            raise ValueError(f'Unsupported kind for param {name}: {param.kind}')
-
     if any(param.kind == inspect.Parameter.VAR_KEYWORD for param in signature.parameters.values()):
         return callable(**merged)
 
